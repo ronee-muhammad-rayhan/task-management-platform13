@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const EditTask = () => {
     // const item = useLoaderData();
     // console.log(item);
-    const { title, description, deadline, priority, _id } = useLoaderData();
+    const { title, description, deadline, priority, status, _id } = useLoaderData();
     console.log(title);
 
     const { register, handleSubmit/* , reset */ } = useForm();
@@ -86,6 +86,20 @@ const EditTask = () => {
                                 <option value="low">Low</option>
                                 <option value="moderate">Moderate</option>
                                 <option value="high">High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className="flex gap-6">
+                        {/* status */}
+                        <div className="form-control w-full my-6">
+                            <label className="label">
+                                <span className="label-text">Status*</span>
+                            </label>
+                            <select defaultValue={status} {...register("status", { required: true })} className="select select-bordered w-full">
+                                <option disabled value="low">Select the Status</option>
+                                <option value="ToDo">to-do</option>
+                                <option value="ongoing">ongoing</option>
+                                <option value="completed">completed</option>
                             </select>
                         </div>
                     </div>
