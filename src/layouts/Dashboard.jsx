@@ -12,7 +12,7 @@ const Dashboard = () => {
     return (
         <div className="flex">
             {/* dashboard sidebar */}
-            <div className="w-64 min-h-screen bg-green-900 text-white font-bold py-7">
+            <div className="w-64 min-h-screen bg-green-900 text-white font-light py-7">
                 <div className="ml-7 w-11">
                     {
                         user && <Dropdown
@@ -54,7 +54,7 @@ const Dashboard = () => {
                                     Dashboard Home</NavLink>
                             </li>
                             <li>
-                                <NavLink to={`/tasks`}>
+                                <NavLink to={`/dashboard/add-task`}>
                                     <FaPlusCircle />
                                     Add Task</NavLink>
                             </li>

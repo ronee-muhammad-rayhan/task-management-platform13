@@ -8,6 +8,7 @@ import ErrorElement from "../pages/ErrorPage/ErrorElement";
 import NotFound from "../pages/NotFoundPage/NotFound";
 import Root from "../layouts/Root.jsx/Root";
 import Dashboard from "../layouts/Dashboard.jsx";
+import AddTask from "../pages/Dashboard/AddTask.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
             {
                 path: 'userHome',
                 element: <Home />
+            },
+            {
+                path: 'add-task',
+                element: <AddTask />
             },
         ]
     }
