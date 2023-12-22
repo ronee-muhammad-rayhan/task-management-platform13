@@ -16,6 +16,8 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@emotion/core": "10.0.9",
+    "@emotion/styled": "10.0.9",
     "@tanstack/react-query": "^5.14.2",
     "aos": "^2.3.4",
     "axios": "^1.6.2",
@@ -30,13 +32,11 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.21.0",
+    "react-scripts": "2.0.3",
     "react-spinners": "^0.13.8",
     "react-spring": "^9.7.3",
     "sweetalert2": "^11.10.1",
-    "swiper": "^11.0.5",
-    "@emotion/core": "10.0.9",
-    "@emotion/styled": "10.0.9",
-    "react-scripts": "2.0.3"
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

@@ -19,7 +19,8 @@ const AddTask = () => {
             description: data.description,
             deadline: data.deadline,
             priority: data.priority,
-            status: 'to-do',
+            status: data.status,
+            // status: 'to-do',
         }
         // 
         const taskRes = await axiosSecure.post(`/tasks`, taskItem);
@@ -44,7 +45,7 @@ const AddTask = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Task Title</span>
+                            <span className="label-text">Task Title*</span>
                         </label>
                         <input
                             type="text"
@@ -61,7 +62,7 @@ const AddTask = () => {
                     </div>
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Deadline</span>
+                            <span className="label-text">Deadline*</span>
                         </label>
                         <input
                             type="date"
@@ -91,7 +92,7 @@ const AddTask = () => {
                                 <span className="label-text">Status*</span>
                             </label>
                             <select {...register("status", { required: true })} className="select select-bordered w-full">
-                                <option disabled value="low">Select the Status</option>
+                                <option disabled value="to-do">Select the Status</option>
                                 <option value="ToDo">to-do</option>
                                 <option value="ongoing">ongoing</option>
                                 <option value="completed">completed</option>

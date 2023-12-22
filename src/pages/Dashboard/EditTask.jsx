@@ -22,7 +22,8 @@ const EditTask = () => {
             description: data.description,
             deadline: data.deadline,
             priority: data.priority,
-            status: 'to-do',
+            status: data.status,
+            // status: 'to-do',
         }
         // 
         const taskRes = await axiosSecure.patch(`/tasks/${_id}`, taskItem);
@@ -79,7 +80,7 @@ const EditTask = () => {
                         {/* priority */}
                         <div className="form-control w-full my-6">
                             <label className="label">
-                                <span className="label-text">Priority*</span>
+                                <span className="label-text">Priority</span>
                             </label>
                             <select defaultValue={priority}  {...register("priority", { required: true })} className="select select-bordered w-full">
                                 <option disabled value="low">Select the Priority</option>
@@ -93,11 +94,12 @@ const EditTask = () => {
                         {/* status */}
                         <div className="form-control w-full my-6">
                             <label className="label">
-                                <span className="label-text">Status*</span>
+                                <span className="label-text">Status</span>
                             </label>
                             <select defaultValue={status} {...register("status", { required: true })} className="select select-bordered w-full">
-                                <option disabled value="low">Select the Status</option>
-                                <option value="ToDo">to-do</option>
+                                <option disabled value="to-do">Select the Status</option>
+                                <option value="to-do">to-do</option>
+                                {/* <option value="ToDo">to-do</option> */}
                                 <option value="ongoing">ongoing</option>
                                 <option value="completed">completed</option>
                             </select>
