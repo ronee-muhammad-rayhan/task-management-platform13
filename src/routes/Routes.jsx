@@ -7,6 +7,7 @@ import Contact from "../pages/Contact/ContactUs";
 import ErrorElement from "../pages/ErrorPage/ErrorElement";
 import NotFound from "../pages/NotFoundPage/NotFound";
 import Root from "../layouts/Root.jsx/Root";
+import Dashboard from "../layouts/Dashboard.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -43,14 +44,29 @@ export const router = createBrowserRouter([
             //     element: <TaskDetails />,
             //     loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/tasks/${params.id}`)
             // },
-            {
+            /* {
                 path: 'dashboard',
-                element: <PrivateRoute><Contact /></PrivateRoute>
-            },
+                element: <PrivateRoute><Dashboard /></PrivateRoute>
+            }, */
             {
                 path: 'contact',
                 element: <PrivateRoute><Contact /></PrivateRoute>
             },
         ],
     },
+    {
+        path: 'dashboard',
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        errorElement: <NotFound />,
+        children: [
+            {
+                path: '*',
+                element: <ErrorElement />
+            },
+            {
+                path: 'userHome',
+                element: <Home />
+            },
+        ]
+    }
 ])
