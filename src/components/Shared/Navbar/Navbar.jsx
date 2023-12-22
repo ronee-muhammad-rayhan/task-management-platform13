@@ -10,11 +10,11 @@ export default function NavbarFlowbite() {
     return (
         <nav>
             <Navbar fluid={true} rounded={true} >
-                <Navbar.Brand href="https://flowbite.com/">
+                <Navbar.Brand href="https://task-man-platform.web.app/">
                     <img
                         src="https://flowbite.com/docs/images/logo.svg"
                         className="mr-3 h-6 sm:h-9"
-                        alt="Flowbite Logo"
+                        alt="Logo"
                     />
                     <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
                         TaskMan

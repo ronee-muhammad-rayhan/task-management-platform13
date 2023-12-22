@@ -6,6 +6,7 @@
 // import SwiperBanner from '../../components/Home/SwiperBanner';
 import { Helmet } from 'react-helmet-async';
 import Banner from '../../components/Home/Banner';
+import { motion } from "framer-motion";
 
 const Home = () => {
     return (
@@ -14,9 +15,25 @@ const Home = () => {
                 <title>TaskMan | Home</title>
             </Helmet>
             {/* Banner/Slider Section */}
-            <section>
+            {/* <section>
                 <Banner />
-            </section>
+            </section> */}
+            <motion.div
+                initial={{ opacity: 0.6 }}
+                whileHover={{
+                    scale: 1.2,
+                    transition: { duration: 1 },
+                }}
+                whileTap={{ scale: 0.9 }}
+                whileInView={{ opacity: 1 }}
+
+            // className="bg-red-600 w-10 h-10 rounded-[20px]"
+            >
+                <section>
+                    <Banner />
+                </section>
+
+            </motion.div>
             {/* <section>
                 <Swiper id='swiper-banner'
                     spaceBetween={50}
