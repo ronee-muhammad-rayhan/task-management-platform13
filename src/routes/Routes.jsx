@@ -11,6 +11,7 @@ import Dashboard from "../layouts/Dashboard.jsx";
 import AddTask from "../pages/Dashboard/AddTask.jsx";
 import AllTasks from "../pages/Dashboard/AllTasks.jsx";
 import Tasks from "../pages/Dashboard/Tasks.jsx";
+import EditTask from "../pages/Dashboard/EditTask.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -68,6 +69,14 @@ export const router = createBrowserRouter([
             },
             {
                 index: true,
+                element: <AllTasks />
+            },
+            // {
+            //     index: true,
+            //     element: <Tasks />
+            // },
+            {
+                path: 'dndTasks',
                 element: <Tasks />
             },
             {
@@ -77,6 +86,11 @@ export const router = createBrowserRouter([
             {
                 path: 'add-task',
                 element: <AddTask />
+            },
+            {
+                path: 'edit-task/:id',
+                element: <EditTask />,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/tasks/${params.id}`)
             },
         ]
     }

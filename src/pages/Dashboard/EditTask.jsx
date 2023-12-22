@@ -8,6 +8,7 @@ const EditTask = () => {
     // const item = useLoaderData();
     // console.log(item);
     const { title, description, deadline, priority, _id } = useLoaderData();
+    console.log(title);
 
     const { register, handleSubmit/* , reset */ } = useForm();
     const axiosSecure = useAxiosSecure();
@@ -41,7 +42,7 @@ const EditTask = () => {
 
     return (
         <div>
-            <SectionTitle heading={`Insert a Task`} subHeading={`opening a new window`}></SectionTitle>
+            <SectionTitle heading={`Edit the Task`} subHeading={`navigating the window`}></SectionTitle>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-6">

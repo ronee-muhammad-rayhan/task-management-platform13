@@ -49,9 +49,14 @@ const Dashboard = () => {
                     {
                         <>
                             <li>
+                                <NavLink to="/dashboard/dndTasks">
+                                    <FaHome></FaHome>
+                                    dndTasks</NavLink>
+                            </li>
+                            <li>
                                 <NavLink to="/dashboard/allTasks">
                                     <FaHome></FaHome>
-                                    Tasks</NavLink>
+                                    AllTasks</NavLink>
                             </li>
                             <li>
                                 <NavLink to={`/dashboard/add-task`}>
@@ -59,7 +64,7 @@ const Dashboard = () => {
                                     Add Task</NavLink>
                             </li>
                             <li>
-                                <NavLink to={`/logout`}>
+                                <NavLink onClick={logOut} to={`/`}>
                                     <FaSignOutAlt />
                                     LogOut</NavLink>
                             </li>

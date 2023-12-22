@@ -111,7 +111,7 @@ const Footer = () => {
                                     </path>
                                 </svg>
                             </a>
-                            <a rel="noopener noreferrer" href="https://github.com/ronee-muhammad-rayhan" title="GitHub"
+                            <a rel="noopener noreferrer" href="https://linkedin.com/in/roneemrayhan-rayhanworld" title="LinkedIn"
                                 className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-violet-400 dark:text-gray-900">
                                 {/* <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
                                     className="w-5 h-5">

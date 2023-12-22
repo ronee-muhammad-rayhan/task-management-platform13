@@ -1,4 +1,5 @@
 import useTasks from "../../hooks/useTasks";
+import { Link } from "react-router-dom";
 
 const AllTasks = () => {
 
@@ -39,7 +40,12 @@ const AllTasks = () => {
                                             </td>
                                             <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{task?.deadline}</td>
                                             <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{task?.priority}</td>
-                                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap">Delete</td>
+                                            <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                <div>
+                                                    <Link to={`/dashboard/edit-task/${task?._id}`}><button>Edit</button></Link>
+                                                    <button>Delete</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                     )
                                 })
