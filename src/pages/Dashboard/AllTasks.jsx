@@ -1,9 +1,46 @@
 import useTasks from "../../hooks/useTasks";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure.jsx";
+import Swal from "sweetalert2";
+
 
 const AllTasks = () => {
 
-    const [tasks] = useTasks();
+    const [tasks, , refetch] = useTasks();
+    const axiosSecure = useAxiosSecure();
+
+    const handleDeleteTask = (task) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const res = await axiosSecure.delete(`/tasks/${task._id}`);
+                // console.log(res.data);
+                if (res.data.deletedCount > 0) {
+                    // refetch to update the ui
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${task.title} has been deleted`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+                // Swal.fire({
+                //     title: "Deleted!",
+                //     text: "Your file has been deleted.",
+                //     icon: "success"
+                // });
+            }
+        });
+    }
 
     return (
         <div>
@@ -41,9 +78,9 @@ const AllTasks = () => {
                                             <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{task?.deadline}</td>
                                             <td className="p-3 text-sm text-gray-700 whitespace-nowrap">{task?.priority}</td>
                                             <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                <div>
-                                                    <Link to={`/dashboard/edit-task/${task?._id}`}><button>Edit</button></Link>
-                                                    <button>Delete</button>
+                                                <div className="flex gap-2">
+                                                    <Link to={`/dashboard/edit-task/${task?._id}`}><button className="bg-lime-400 rounded-md px-2 py-1 text-red-600 font-bold">Edit</button></Link>
+                                                    <button onClick={() => handleDeleteTask(task)} className="bg-red-600 rounded-md px-2 py-1 text-white font-bold">Delete</button>
                                                 </div>
                                             </td>
                                         </tr>
