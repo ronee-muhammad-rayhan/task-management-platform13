@@ -65,7 +65,7 @@ const Home = () => {
                     <section className="bg-gray-100 text-gray-800">
                         <div className="container p-6 mx-auto space-y-6 text-center lg:p-8 lg:space-y-8">
                             <h2 className="text-3xl font-bold">Target People Who will be Benefited with</h2>
-                            <div className="flex flex-wrap justify-center lg:justify-between">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center lg:justify-between">
                                 <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 bg-gray-50 text-gray-800">
                                     <p className="text-4xl font-bold leadi lg:text-6xl">Engineers</p>
                                 </div>
