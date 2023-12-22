@@ -10,6 +10,7 @@ import Root from "../layouts/Root.jsx/Root";
 import Dashboard from "../layouts/Dashboard.jsx";
 import AddTask from "../pages/Dashboard/AddTask.jsx";
 import AllTasks from "../pages/Dashboard/AllTasks.jsx";
+import Tasks from "../pages/Dashboard/Tasks.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -67,7 +68,7 @@ export const router = createBrowserRouter([
             },
             {
                 index: true,
-                element: <AllTasks />
+                element: <Tasks />
             },
             {
                 path: 'allTasks',
