@@ -54,6 +54,11 @@ const Dashboard = () => {
                                     dndTasks</NavLink>
                             </li>
                             <li>
+                                <NavLink to="/dashboard/draggableTasks">
+                                    <FaHome></FaHome>
+                                    DraggableTasks</NavLink>
+                            </li>
+                            <li>
                                 <NavLink to="/dashboard/allTasks">
                                     <FaHome></FaHome>
                                     AllTasks</NavLink>

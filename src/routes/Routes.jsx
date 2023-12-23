@@ -12,6 +12,7 @@ import AddTask from "../pages/Dashboard/AddTask.jsx";
 import AllTasks from "../pages/Dashboard/AllTasks.jsx";
 import Tasks from "../pages/Dashboard/Tasks.jsx";
 import EditTask from "../pages/Dashboard/EditTask.jsx";
+import DraggableTasks from "../pages/Dashboard/DraggableTasks.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -78,6 +79,10 @@ export const router = createBrowserRouter([
             {
                 path: 'dndTasks',
                 element: <Tasks />
+            },
+            {
+                path: 'draggableTasks',
+                element: <DraggableTasks />
             },
             {
                 path: 'allTasks',
