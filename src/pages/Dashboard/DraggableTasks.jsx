@@ -83,6 +83,7 @@ const DraggableTasks = () => {
         }
 
         await axiosSecure.patch(`/tasks/${draggingTask._id}`, taskItem);
+        refetch();
     }
 
     return (
