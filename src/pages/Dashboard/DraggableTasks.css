@@ -1,12 +1,22 @@
 #div1 {
-    width: 350px;
-    height: 70px;
+    /* width: 350px; */
+    /* height: 70px; */
+    min-width: 350px;
+    min-height: 70px;
     padding: 10px;
+    padding-bottom: 130px;
     border: 1px solid #aaaaaa;
+    display: grid;
+    gap: 16px;
   }
   #div2 {
-    width: 350px;
-    height: 70px;
+    /* width: 350px; */
+    /* height: 70px; */
+    min-width: 350px;
+    min-height: 70px;
     padding: 10px;
+    padding-bottom: 130px;
     border: 1px solid #aaaaaa;
+    display: grid;
+    gap: 16px;
   }
