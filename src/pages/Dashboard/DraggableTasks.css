@@ -1,22 +1,36 @@
-#div1 {
+#to-do {
     /* width: 350px; */
     /* height: 70px; */
     min-width: 350px;
     min-height: 70px;
     padding: 10px;
     padding-bottom: 130px;
-    border: 1px solid #aaaaaa;
+    border: 1px solid #aa0000;
+    background: #FF00FF0F;
     display: grid;
     gap: 16px;
   }
-  #div2 {
+  #ongoing {
     /* width: 350px; */
     /* height: 70px; */
     min-width: 350px;
     min-height: 70px;
     padding: 10px;
     padding-bottom: 130px;
-    border: 1px solid #aaaaaa;
+    border: 1px solid #00aa00;
+    background: #00FFFF0F;
+    display: grid;
+    gap: 16px;
+  }
+  #completed {
+    /* width: 350px; */
+    /* height: 70px; */
+    min-width: 350px;
+    min-height: 70px;
+    padding: 10px;
+    padding-bottom: 130px;
+    border: 1px solid #0000aa;
+    background: #FFFF000F;
     display: grid;
     gap: 16px;
   }

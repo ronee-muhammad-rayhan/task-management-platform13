@@ -69,7 +69,7 @@ const DraggableTasks = () => {
             <h2 className="text-3xl font-bold text-red-600 text-center">Draggable Tasks</h2>
             <p>ToDo tasks:</p>
 
-            <div id="div1" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
+            <div id="to-do" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
                 {
                     todoTasks.map((task) => (
                         <div id={task._id} key={task._id} draggable="true" onDragStart={(event) => drag(event)} className="bg-white space-y-3 p-4 rounded-lg shadow">
@@ -98,7 +98,7 @@ const DraggableTasks = () => {
                 }
             </div>
             <p>Ongoing tasks:</p>
-            <div id="div2" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
+            <div id="ongoing" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
                 {
                     ongoingTasks.map((task) => (
                         <div id={task._id} key={task._id} draggable="true" onDragStart={(event) => drag(event)} className="bg-white space-y-3 p-4 rounded-lg shadow">
@@ -127,7 +127,7 @@ const DraggableTasks = () => {
                 }
             </div>
             <p>Completed tasks:</p>
-            <div id="div2" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
+            <div id="completed" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
                 {
                     completedTasks.map((task) => (
                         <div id={task._id} key={task._id} draggable="true" onDragStart={(event) => drag(event)} className="bg-white space-y-3 p-4 rounded-lg shadow">
