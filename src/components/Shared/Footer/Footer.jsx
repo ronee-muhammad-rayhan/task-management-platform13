@@ -16,14 +16,19 @@ const Footer = () => {
                             <p className="pb-1 text-lg font-medium">QUICK LINKS</p>
                             <ul>
                                 <li>
+                                    <a rel="noopener noreferrer" href="https://task-man-platform.web.app/" className="hover:dark:text-violet-400">Live Site</a>
+                                </li>
+                                <li>
+                                    <a rel="noopener noreferrer" href="https://github.com/ronee-muhammad-rayhan/task-management-platform13.git" className="hover:dark:text-violet-400">Github Client</a>
+                                </li>
+                                <li>
+                                    <a rel="noopener noreferrer" href="https://github.com/ronee-muhammad-rayhan/task-man-server13" className="hover:dark:text-violet-400">Github Server</a>
+                                </li>
+                                <li>
                                     <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-400">About Us</a>
                                 </li>
                                 <li>
-                                    <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-400">Careers</a>
-                                </li>
-                                <li>
-                                    <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-400">News &
-                                        Blogs</a>
+                                    <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-400">Contact Us</a>
                                 </li>
                                 <li>
                                     <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-400">Support
@@ -56,6 +61,13 @@ const Footer = () => {
                                 <li>
                                     <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-400">Account
                                         SignUp</a>
+                                </li>
+                                <li>
+                                    <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-400">Careers</a>
+                                </li>
+                                <li>
+                                    <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-400">News &
+                                        Blogs</a>
                                 </li>
                             </ul>
                         </div>
