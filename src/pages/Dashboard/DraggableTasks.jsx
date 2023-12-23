@@ -3,11 +3,13 @@ import useTasks from "../../hooks/useTasks";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure.jsx";
 import Swal from "sweetalert2";
+import { useState } from 'react';
 
 const DraggableTasks = () => {
 
     const [tasks, , refetch] = useTasks();
     const axiosSecure = useAxiosSecure();
+    const [draggingTask, setDraggingTask] = useState({});
 
     const todoTasks = tasks.filter(task => task?.status === 'to-do');
     const ongoingTasks = tasks.filter(task => task?.status === 'ongoing');
@@ -56,18 +58,37 @@ const DraggableTasks = () => {
 
     function drag(ev) {
         ev.dataTransfer.setData("text", ev.target.id);
+        console.log(ev.target);
+        // setDraggingTask(ev.target.id);
+        // const taskItem = fetch(`${import.meta.env.VITE_API_URL}/tasks/${ev.target.id}`
+
+        setDraggingTask(tasks.find(task => task._id === ev.target.id));
     }
 
-    function drop(ev) {
+    async function drop(ev) {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
+        console.log(ev.target.id);
+        console.log(ev.srcElement);
+        console.log(ev.target);
+        // console.log(ev.srcElement.id);
+
+        const taskItem = {
+            title: draggingTask.title,
+            description: draggingTask.description,
+            deadline: draggingTask.deadline,
+            priority: draggingTask.priority,
+            status: ev.target.id,
+        }
+
+        await axiosSecure.patch(`/tasks/${draggingTask._id}`, taskItem);
     }
 
     return (
         <div>
             <h2 className="text-3xl font-bold text-red-600 text-center">Draggable Tasks</h2>
-            <p>ToDo tasks:</p>
+            <p className='pt-7'>ToDo tasks:</p>
 
             <div id="to-do" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
                 {
@@ -97,7 +118,7 @@ const DraggableTasks = () => {
                     ))
                 }
             </div>
-            <p>Ongoing tasks:</p>
+            <p className='pt-7'>Ongoing tasks:</p>
             <div id="ongoing" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
                 {
                     ongoingTasks.map((task) => (
@@ -126,7 +147,7 @@ const DraggableTasks = () => {
                     ))
                 }
             </div>
-            <p>Completed tasks:</p>
+            <p className='pt-7'>Completed tasks:</p>
             <div id="completed" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
                 {
                     completedTasks.map((task) => (

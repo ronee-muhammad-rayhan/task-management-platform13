@@ -49,11 +49,6 @@ const Dashboard = () => {
                     {
                         <>
                             <li>
-                                <NavLink to="/dashboard/dndTasks">
-                                    <FaHome></FaHome>
-                                    dndTasks</NavLink>
-                            </li>
-                            <li>
                                 <NavLink to="/dashboard/draggableTasks">
                                     <FaHome></FaHome>
                                     DraggableTasks</NavLink>
@@ -67,6 +62,11 @@ const Dashboard = () => {
                                 <NavLink to={`/dashboard/add-task`}>
                                     <FaPlusCircle />
                                     Add Task</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/dndTasks">
+                                    <FaHome></FaHome>
+                                    dndTasks</NavLink>
                             </li>
                             <li>
                                 <NavLink onClick={logOut} to={`/`}>
