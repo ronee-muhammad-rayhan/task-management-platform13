@@ -70,7 +70,8 @@ export const router = createBrowserRouter([
             },
             {
                 index: true,
-                element: <AllTasks />
+                element: <DraggableTasks />
+                // element: <AllTasks />
             },
             // {
             //     index: true,

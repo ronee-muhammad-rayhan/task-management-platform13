@@ -93,7 +93,8 @@ const AddTask = () => {
                             </label>
                             <select {...register("status", { required: true })} className="select select-bordered w-full">
                                 <option disabled value="to-do">Select the Status</option>
-                                <option value="ToDo">to-do</option>
+                                <option value="to-do">to-do</option>
+                                {/* <option value="ToDo">to-do</option> */}
                                 <option value="ongoing">ongoing</option>
                                 <option value="completed">completed</option>
                             </select>

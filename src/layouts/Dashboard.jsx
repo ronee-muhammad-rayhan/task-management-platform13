@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaHome, FaPlusCircle, FaEnvelope, FaSignOutAlt, FaInfoCircle } from 'react-icons/fa';
+import { FaHome, FaPlusCircle, FaEnvelope, FaSignOutAlt, FaInfoCircle, FaTasks } from 'react-icons/fa';
 // import { FcAbout } from "react-icons/fc";
 import useAuth from "../hooks/useAuth";
 import { Avatar, Dropdown } from "flowbite-react";
@@ -50,24 +50,29 @@ const Dashboard = () => {
                         <>
                             <li>
                                 <NavLink to="/dashboard/draggableTasks">
+                                    <FaTasks />
+                                    AllTasks</NavLink>
+                            </li>
+                            {/* <li>
+                                <NavLink to="/dashboard/draggableTasks">
                                     <FaHome></FaHome>
                                     DraggableTasks</NavLink>
-                            </li>
-                            <li>
+                            </li> */}
+                            {/* <li>
                                 <NavLink to="/dashboard/allTasks">
                                     <FaHome></FaHome>
                                     AllTasks</NavLink>
-                            </li>
+                            </li> */}
                             <li>
                                 <NavLink to={`/dashboard/add-task`}>
                                     <FaPlusCircle />
                                     Add Task</NavLink>
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink to="/dashboard/dndTasks">
                                     <FaHome></FaHome>
                                     dndTasks</NavLink>
-                            </li>
+                            </li> */}
                             <li>
                                 <NavLink onClick={logOut} to={`/`}>
                                     <FaSignOutAlt />

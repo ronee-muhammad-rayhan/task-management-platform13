@@ -118,7 +118,8 @@ const Register = () => {
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        navigate('/dashboard');
+                        // navigate('/dashboard');
+                        navigate('/dashboard/draggableTasks');
                     }
                 } catch (err) { console.log(err); }
 
@@ -179,17 +180,19 @@ const Register = () => {
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        navigate('/dashboard');
+                        // navigate('/dashboard');
+                        navigate('/dashboard/draggableTasks');
                     }
                 } catch (err) { console.log(err); }
 
                 console.log(userCredential.user);
                 swalNotification();
-                if (location.state) {
+                /* if (location.state) {
                     navigate(`${location.state}`);
                 } else {
                     navigate('/');
-                }
+                } */
+                navigate('/dashboard/draggableTasks');
             })
             .catch((error) => {
                 setError(error.message);
@@ -202,11 +205,12 @@ const Register = () => {
             .then((userCredential) => {
                 console.log(userCredential.user);
                 swalNotification();
-                if (location.state) {
+                /* if (location.state) {
                     navigate(`${location.state}`);
                 } else {
                     navigate('/');
-                }
+                } */
+                navigate('/dashboard/draggableTasks');
             })
             .catch((error) => {
                 setError(error.message);
@@ -219,11 +223,12 @@ const Register = () => {
             .then((userCredential) => {
                 console.log(userCredential.user);
                 swalNotification();
-                if (location.state) {
+                /* if (location.state) {
                     navigate(`${location.state}`);
                 } else {
                     navigate('/');
-                }
+                } */
+                navigate('/dashboard/draggableTasks');
             })
             .catch((error) => {
                 setError(error.message);

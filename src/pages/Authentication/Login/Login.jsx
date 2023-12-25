@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, /* useLocation, */ useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
@@ -8,9 +8,9 @@ const Login = () => {
     const [error, setError] = useState('');
     const { signIn, loginWithGoogle, loginWithApple, loginWithGithub } = useAuth();
     const form = useRef(null);
-    const location = useLocation();
+    // const location = useLocation();
     const navigate = useNavigate();
-    const navigateTo = location?.state || '/';
+    // const navigateTo = location?.state || '/';
 
     const swalNotification = () => {
         Swal.fire({
@@ -32,7 +32,8 @@ const Login = () => {
         signIn(email, password)
             .then((userCredential) => {
                 console.log(userCredential.user);
-                navigate(navigateTo);
+                // navigate(navigateTo);
+                navigate('/dashboard/draggableTasks');
             })
             .catch((error) => {
                 if (error.code === "auth/invalid-login-credentials") {
@@ -49,11 +50,12 @@ const Login = () => {
             .then((userCredential) => {
                 console.log(userCredential.user);
                 swalNotification();
-                if (location.state) {
+                /* if (location.state) {
                     navigate(`${location.state}`);
                 } else {
                     navigate('/');
-                }
+                } */
+                navigate('/dashboard/draggableTasks');
             })
             .catch((error) => {
                 setError(error.message);
@@ -66,11 +68,12 @@ const Login = () => {
             .then((userCredential) => {
                 console.log(userCredential.user);
                 swalNotification();
-                if (location.state) {
+                /* if (location.state) {
                     navigate(`${location.state}`);
                 } else {
                     navigate('/');
-                }
+                } */
+                navigate('/dashboard/draggableTasks');
             })
             .catch((error) => {
                 setError(error.message);
@@ -83,11 +86,12 @@ const Login = () => {
             .then((userCredential) => {
                 console.log(userCredential.user);
                 swalNotification();
-                if (location.state) {
+                /* if (location.state) {
                     navigate(`${location.state}`);
                 } else {
                     navigate('/');
-                }
+                } */
+                navigate('/dashboard/draggableTasks');
             })
             .catch((error) => {
                 setError(error.message);

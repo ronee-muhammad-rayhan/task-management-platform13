@@ -11,6 +11,7 @@ const DraggableTasks = () => {
     const axiosSecure = useAxiosSecure();
     const [draggingTask, setDraggingTask] = useState({});
     const [activeTaskId, setActiveTaskId] = useState('');
+    console.log(tasks);
 
     const todoTasks = tasks.filter(task => task?.status === 'to-do');
     const ongoingTasks = tasks.filter(task => task?.status === 'ongoing');
@@ -65,6 +66,8 @@ const DraggableTasks = () => {
         setActiveTaskId(ev.target.id);
         setDraggingTask(tasks.find(task => task._id === ev.target.id));
         console.log(draggingTask);
+        console.log(ev);
+        // ev.target.removeChild(document.getElementById(ev.target.id));
     }
 
     function drop(ev) {
@@ -87,6 +90,7 @@ const DraggableTasks = () => {
         }
 
         setDraggingTask(taskItem);
+        console.log(ev);
     }
 
     useEffect(() => {
@@ -108,10 +112,11 @@ const DraggableTasks = () => {
                                     <a href="#" className="text-blue-500 font-bold hover:underline">{task?.title}</a>
                                 </div>
                                 <div className="text-gray-500">{task?.deadline}</div>
-                                <div>
-                                    <span
-                                        className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{task?.status}</span>
-                                </div>
+                                {/* <div>
+                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">
+                                        {task?.status}
+                                    </span>
+                                </div> */}
                             </div>
                             <div className="text-sm text-gray-700">
                                 {task?.description}
@@ -138,8 +143,7 @@ const DraggableTasks = () => {
                                 </div>
                                 <div className="text-gray-500">{task?.deadline}</div>
                                 <div>
-                                    <span
-                                        className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{task?.status}</span>
+                                    {/* <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{task?.status}</span> */}
                                 </div>
                             </div>
                             <div className="text-sm text-gray-700">
@@ -167,8 +171,7 @@ const DraggableTasks = () => {
                                 </div>
                                 <div className="text-gray-500">{task?.deadline}</div>
                                 <div>
-                                    <span
-                                        className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{task?.status}</span>
+                                    {/* <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{task?.status}</span> */}
                                 </div>
                             </div>
                             <div className="text-sm text-gray-700">
