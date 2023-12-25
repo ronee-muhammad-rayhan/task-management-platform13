@@ -3,13 +3,14 @@ import useTasks from "../../hooks/useTasks";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure.jsx";
 import Swal from "sweetalert2";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const DraggableTasks = () => {
 
     const [tasks, , refetch] = useTasks();
     const axiosSecure = useAxiosSecure();
     const [draggingTask, setDraggingTask] = useState({});
+    const [activeTaskId, setActiveTaskId] = useState('');
 
     const todoTasks = tasks.filter(task => task?.status === 'to-do');
     const ongoingTasks = tasks.filter(task => task?.status === 'ongoing');
@@ -61,20 +62,23 @@ const DraggableTasks = () => {
         console.log(ev.target);
         // setDraggingTask(ev.target.id);
         // const taskItem = fetch(`${import.meta.env.VITE_API_URL}/tasks/${ev.target.id}`
-
+        setActiveTaskId(ev.target.id);
         setDraggingTask(tasks.find(task => task._id === ev.target.id));
+        console.log(draggingTask);
     }
 
-    async function drop(ev) {
+    function drop(ev) {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
         console.log(ev.target.id);
-        console.log(ev.srcElement);
+        // console.log(ev.srcElement);
         console.log(ev.target);
         // console.log(ev.srcElement.id);
 
         const taskItem = {
+            _id: activeTaskId,
+            email: draggingTask.email,
             title: draggingTask.title,
             description: draggingTask.description,
             deadline: draggingTask.deadline,
@@ -82,9 +86,13 @@ const DraggableTasks = () => {
             status: ev.target.id,
         }
 
-        await axiosSecure.patch(`/tasks/${draggingTask._id}`, taskItem);
-        refetch();
+        setDraggingTask(taskItem);
     }
+
+    useEffect(() => {
+        axiosSecure.patch(`/tasks/${draggingTask._id}`, draggingTask);
+        // refetch();
+    }, [axiosSecure, draggingTask, refetch])
 
     return (
         <div>
