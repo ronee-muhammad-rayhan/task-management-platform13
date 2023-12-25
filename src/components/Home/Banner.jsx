@@ -9,7 +9,8 @@ const Banner = () => {
                     <div className="max-w-md">
                         <h1 className="mb-5 text-5xl font-bold">Welcome</h1>
                         <p className="mb-5">Are you get meshed up with your task? If yes; then you can explore our TaskMan to get your task organized</p>
-                        <Link to={`/dashboard/allTasks`}><button className="btn btn-primary">Let&apos;s Explore</button></Link>
+                        <Link to={`/dashboard`}><button className="btn btn-primary">Let&apos;s Explore</button></Link>
+                        {/* <Link to={`/dashboard/allTasks`}><button className="btn btn-primary">Let&apos;s Explore</button></Link> */}
                     </div>
                 </div>
             </div>

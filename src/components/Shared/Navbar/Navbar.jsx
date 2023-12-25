@@ -73,8 +73,9 @@ export default function NavbarFlowbite() {
                         Home
                     </Navbar.Link>
                     <Navbar.Link href="/dashboard">Dashboard</Navbar.Link>
+                    <Navbar.Link href="/source-codes">Source Codes</Navbar.Link>
                     {/* <Navbar.Link href="/blogs">Blogs</Navbar.Link> */}
-                    <Navbar.Link href="/about">About Us</Navbar.Link>
+                    {/* <Navbar.Link href="/about">About Us</Navbar.Link> */}
                     <Navbar.Link href="/contact">Contact Us</Navbar.Link>
                     {
                         !user && <Navbar.Link href="/register">Register</Navbar.Link>

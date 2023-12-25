@@ -13,6 +13,7 @@ import AllTasks from "../pages/Dashboard/AllTasks.jsx";
 import Tasks from "../pages/Dashboard/Tasks.jsx";
 import EditTask from "../pages/Dashboard/EditTask.jsx";
 import DraggableTasks from "../pages/Dashboard/DraggableTasks.jsx";
+import SourceCodes from "../pages/SourceCodes/SourceCodes.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -29,9 +30,13 @@ export const router = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: 'about',
-                element: <Home />
+                path: 'source-codes',
+                element: <SourceCodes />
             },
+            // {
+            //     path: 'about',
+            //     element: <Home />
+            // },
             {
                 path: 'register',
                 element: <Register />
@@ -97,6 +102,10 @@ export const router = createBrowserRouter([
                 path: 'edit-task/:id',
                 element: <EditTask />,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/tasks/${params.id}`)
+            },
+            {
+                path: 'source-codes',
+                element: <SourceCodes />
             },
         ]
     }

@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaHome, FaPlusCircle, FaEnvelope, FaSignOutAlt, FaInfoCircle, FaTasks } from 'react-icons/fa';
+import { FaHome, FaPlusCircle, FaEnvelope, FaSignOutAlt, FaInfoCircle, FaTasks, FaCode } from 'react-icons/fa';
 // import { FcAbout } from "react-icons/fc";
 import useAuth from "../hooks/useAuth";
 import { Avatar, Dropdown } from "flowbite-react";
@@ -67,6 +67,12 @@ const Dashboard = () => {
                                 <NavLink to={`/dashboard/add-task`}>
                                     <FaPlusCircle />
                                     Add Task</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={`/dashboard/source-codes`}>
+                                    <FaCode />
+                                    SourceCodes
+                                </NavLink>
                             </li>
                             {/* <li>
                                 <NavLink to="/dashboard/dndTasks">
