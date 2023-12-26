@@ -1,8 +1,8 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaPlusCircle, FaEnvelope, FaSignOutAlt, FaInfoCircle, FaTasks, FaCode } from 'react-icons/fa';
 // import { FcAbout } from "react-icons/fc";
 import useAuth from "../hooks/useAuth";
-import { Avatar, Dropdown } from "flowbite-react";
+import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import profileImage from "./../assets/images/profile-picture-5.jpg";
 
 
@@ -10,7 +10,7 @@ const Dashboard = () => {
     const { user, logOut } = useAuth();
 
     return (
-        <div className="flex">
+        <div className="flex relative">
             {/* dashboard sidebar */}
             <div className="w-64 min-h-screen bg-green-900 text-white font-light py-7 hidden md:block">
                 <div className="ml-7 w-11">
@@ -108,9 +108,29 @@ const Dashboard = () => {
                 </ul>
             </div>
             {/* dashboard content */}
-            <div className="flex-1 p-8">
+            <div className="flex-1 md:p-8">
                 <Outlet></Outlet>
             </div>
+
+            <Navbar fluid={true} rounded={true} className="top-3 right-3 fixed pt-6 block md:hidden">
+                <Navbar.Toggle className="top-3 right-3 fixed block md:hidden bg-green-500 text-red-600" />
+                <Navbar.Collapse>
+                    <Navbar.Link href="/" active={true}>
+                        Home
+                    </Navbar.Link>
+                    <Navbar.Link href="/dashboard/draggableTasks">Dashboard</Navbar.Link>
+                    <Navbar.Link href="/dashboard/add-task">Add Task</Navbar.Link>
+                    {/* <Navbar.Link href="/blogs">Blogs</Navbar.Link> */}
+                    {/* <Navbar.Link href="/about">About Us</Navbar.Link> */}
+                    <Navbar.Link href="/contact">Contact Us</Navbar.Link>
+                </Navbar.Collapse>
+            </Navbar>
+            {/* floating nav */}
+            <Link to={`/dashboard/add-task`}>
+                <div className=" bottom-6 right-3 rounded-full bg-red-600 h-10 w-10 text-center items-center flex justify-center text-3xl text-lime-300 font-bold fixed">
+                    +
+                </div>
+            </Link>
         </div>
     );
 };
