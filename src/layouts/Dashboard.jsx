@@ -112,7 +112,7 @@ const Dashboard = () => {
                 <Outlet></Outlet>
             </div>
 
-            <Navbar fluid={true} rounded={true} className="top-3 right-3 fixed pt-6 block md:hidden">
+            <Navbar fluid={true} rounded={true} className="top-3 right-3 fixed mt-6 block md:hidden">
                 <Navbar.Toggle className="top-3 right-3 fixed block md:hidden bg-green-500 text-red-600" />
                 <Navbar.Collapse>
                     <Navbar.Link href="/" active={true}>
