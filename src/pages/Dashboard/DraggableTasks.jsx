@@ -101,93 +101,103 @@ const DraggableTasks = () => {
     return (
         <div>
             <h2 className="text-3xl font-bold text-red-600 text-center">Draggable Tasks</h2>
-            <p className='pt-7'>ToDo tasks:</p>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
+                <div>
+                    <p className='pt-7'>ToDo tasks:</p>
+                    <div id="to-do" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
+                        {
+                            todoTasks.map((task) => (
+                                <div id={task._id} key={task._id} draggable="true" onDragStart={(event) => drag(event)} className="bg-white space-y-3 p-4 rounded-lg shadow">
+                                    <div className="flex items-center space-x-2 text-sm">
+                                        <div>
+                                            <a href="#" className="text-blue-500 font-bold hover:underline">{task?.title}</a>
+                                        </div>
+                                        <div className="text-gray-500">{task?.deadline}</div>
+                                        {/* <div>
+                        <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">
+                            {task?.status}
+                        </span>
+                        </div> */}
+                                    </div>
+                                    <div className="text-sm text-gray-700">
+                                        {task?.description}
+                                    </div>
+                                    <div className="text-sm font-medium text-black">
+                                        {task?.priority}
+                                    </div>
+                                    <div className="flex gap-2">
+                                        <Link to={`/dashboard/edit-task/${task?._id}`}><button className="bg-lime-400 rounded-md px-2 py-1 text-red-600 font-bold">Edit</button></Link>
+                                        <button onClick={() => handleDeleteTask(task)} className="bg-red-600 rounded-md px-2 py-1 text-white font-bold">Delete</button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div>
+                    <p className='pt-7'>Ongoing tasks:</p>
+                    <div id="ongoing" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
+                        {
+                            ongoingTasks.map((task) => (
+                                <div id={task._id} key={task._id} draggable="true" onDragStart={(event) => drag(event)} className="bg-white space-y-3 p-4 rounded-lg shadow">
+                                    <div className="flex items-center space-x-2 text-sm">
+                                        <div>
+                                            <a href="#" className="text-blue-500 font-bold hover:underline">{task?.title}</a>
+                                        </div>
+                                        <div className="text-gray-500">{task?.deadline}</div>
+                                        <div>
+                                            {/* <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{task?.status}</span> */}
+                                        </div>
+                                    </div>
+                                    <div className="text-sm text-gray-700">
+                                        {task?.description}
+                                    </div>
+                                    <div className="text-sm font-medium text-black">
+                                        {task?.priority}
+                                    </div>
+                                    <div className="flex gap-2">
+                                        <Link to={`/dashboard/edit-task/${task?._id}`}><button className="bg-lime-400 rounded-md px-2 py-1 text-red-600 font-bold">Edit</button></Link>
+                                        <button onClick={() => handleDeleteTask(task)} className="bg-red-600 rounded-md px-2 py-1 text-white font-bold">Delete</button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div>
+                    <p className='pt-7'>Completed tasks:</p>
+                    <div id="completed" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
+                        {
+                            completedTasks.map((task) => (
+                                <div id={task._id} key={task._id} draggable="true" onDragStart={(event) => drag(event)} className="bg-white space-y-3 p-4 rounded-lg shadow">
+                                    <div className="flex items-center space-x-2 text-sm">
+                                        <div>
+                                            <a href="#" className="text-blue-500 font-bold hover:underline">{task?.title}</a>
+                                        </div>
+                                        <div className="text-gray-500">{task?.deadline}</div>
+                                        <div>
+                                            {/* <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{task?.status}</span> */}
+                                        </div>
+                                    </div>
+                                    <div className="text-sm text-gray-700">
+                                        {task?.description}
+                                    </div>
+                                    <div className="text-sm font-medium text-black">
+                                        {task?.priority}
+                                    </div>
+                                    <div className="flex gap-2">
+                                        <Link to={`/dashboard/edit-task/${task?._id}`}><button className="bg-lime-400 rounded-md px-2 py-1 text-red-600 font-bold">Edit</button></Link>
+                                        <button onClick={() => handleDeleteTask(task)} className="bg-red-600 rounded-md px-2 py-1 text-white font-bold">Delete</button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
 
-            <div id="to-do" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
-                {
-                    todoTasks.map((task) => (
-                        <div id={task._id} key={task._id} draggable="true" onDragStart={(event) => drag(event)} className="bg-white space-y-3 p-4 rounded-lg shadow">
-                            <div className="flex items-center space-x-2 text-sm">
-                                <div>
-                                    <a href="#" className="text-blue-500 font-bold hover:underline">{task?.title}</a>
-                                </div>
-                                <div className="text-gray-500">{task?.deadline}</div>
-                                {/* <div>
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">
-                                        {task?.status}
-                                    </span>
-                                </div> */}
-                            </div>
-                            <div className="text-sm text-gray-700">
-                                {task?.description}
-                            </div>
-                            <div className="text-sm font-medium text-black">
-                                {task?.priority}
-                            </div>
-                            <div className="flex gap-2">
-                                <Link to={`/dashboard/edit-task/${task?._id}`}><button className="bg-lime-400 rounded-md px-2 py-1 text-red-600 font-bold">Edit</button></Link>
-                                <button onClick={() => handleDeleteTask(task)} className="bg-red-600 rounded-md px-2 py-1 text-white font-bold">Delete</button>
-                            </div>
-                        </div>
-                    ))
-                }
             </div>
-            <p className='pt-7'>Ongoing tasks:</p>
-            <div id="ongoing" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
-                {
-                    ongoingTasks.map((task) => (
-                        <div id={task._id} key={task._id} draggable="true" onDragStart={(event) => drag(event)} className="bg-white space-y-3 p-4 rounded-lg shadow">
-                            <div className="flex items-center space-x-2 text-sm">
-                                <div>
-                                    <a href="#" className="text-blue-500 font-bold hover:underline">{task?.title}</a>
-                                </div>
-                                <div className="text-gray-500">{task?.deadline}</div>
-                                <div>
-                                    {/* <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{task?.status}</span> */}
-                                </div>
-                            </div>
-                            <div className="text-sm text-gray-700">
-                                {task?.description}
-                            </div>
-                            <div className="text-sm font-medium text-black">
-                                {task?.priority}
-                            </div>
-                            <div className="flex gap-2">
-                                <Link to={`/dashboard/edit-task/${task?._id}`}><button className="bg-lime-400 rounded-md px-2 py-1 text-red-600 font-bold">Edit</button></Link>
-                                <button onClick={() => handleDeleteTask(task)} className="bg-red-600 rounded-md px-2 py-1 text-white font-bold">Delete</button>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-            <p className='pt-7'>Completed tasks:</p>
-            <div id="completed" onDrop={(event) => drop(event)} onDragOver={(event) => allowDrop(event)}>
-                {
-                    completedTasks.map((task) => (
-                        <div id={task._id} key={task._id} draggable="true" onDragStart={(event) => drag(event)} className="bg-white space-y-3 p-4 rounded-lg shadow">
-                            <div className="flex items-center space-x-2 text-sm">
-                                <div>
-                                    <a href="#" className="text-blue-500 font-bold hover:underline">{task?.title}</a>
-                                </div>
-                                <div className="text-gray-500">{task?.deadline}</div>
-                                <div>
-                                    {/* <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{task?.status}</span> */}
-                                </div>
-                            </div>
-                            <div className="text-sm text-gray-700">
-                                {task?.description}
-                            </div>
-                            <div className="text-sm font-medium text-black">
-                                {task?.priority}
-                            </div>
-                            <div className="flex gap-2">
-                                <Link to={`/dashboard/edit-task/${task?._id}`}><button className="bg-lime-400 rounded-md px-2 py-1 text-red-600 font-bold">Edit</button></Link>
-                                <button onClick={() => handleDeleteTask(task)} className="bg-red-600 rounded-md px-2 py-1 text-white font-bold">Delete</button>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
+
+
             {/* <br /> */}
             {/* <img id="drag1" src="https://www.w3schools.com/html/img_logo.gif" draggable="true" onDragStart={(event) => drag(event)} width="336" height="69" /> */}
 

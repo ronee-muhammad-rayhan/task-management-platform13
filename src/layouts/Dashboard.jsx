@@ -115,10 +115,10 @@ const Dashboard = () => {
             <Navbar fluid={true} rounded={true} className="top-3 right-3 fixed mt-6 block md:hidden">
                 <Navbar.Toggle className="top-3 right-3 fixed block md:hidden bg-green-500 text-red-600" />
                 <Navbar.Collapse>
-                    <Navbar.Link href="/" active={true}>
+                    <Navbar.Link href="/">
                         Home
                     </Navbar.Link>
-                    <Navbar.Link href="/dashboard/draggableTasks">Dashboard</Navbar.Link>
+                    <Navbar.Link href="/dashboard/draggableTasks" active={true}>Dashboard</Navbar.Link>
                     <Navbar.Link href="/dashboard/add-task">Add Task</Navbar.Link>
                     {/* <Navbar.Link href="/blogs">Blogs</Navbar.Link> */}
                     {/* <Navbar.Link href="/about">About Us</Navbar.Link> */}
